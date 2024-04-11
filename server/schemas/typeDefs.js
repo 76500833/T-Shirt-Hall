@@ -18,9 +18,10 @@ const typeDefs = `
     _id: ID!
     username: String!
     email: String!
-    password: String!
     cart: [Cart]!
   }
 `;
 
+// The queries and mutations that you send from your React components 
+//need to match the type definitions in here.
 module.exports = typeDefs;
