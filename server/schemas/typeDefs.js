@@ -1,6 +1,7 @@
 const typeDefs = `
   type Query {
     users: [User]!
+    shirts: [Shirt]
   }
 
   type Mutation {
@@ -19,6 +20,16 @@ const typeDefs = `
     username: String!
     email: String!
     cart: [Cart]!
+  }
+  type Shirt {
+    name: String!
+    price: Float!
+    size: String!
+    description: String
+    color: String!
+    image: String
+    stock: Int!
+    category: String!
   }
 `;
 

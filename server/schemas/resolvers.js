@@ -6,7 +6,7 @@
 // Saves the updated User object to the database.
 // Returns the new Cart object to the client.
 
-const { User, Cart } = require('../models');
+const { User, Cart, Shirt } = require('../models');
 const { ObjectId } = require('mongoose').Types;
 const mongoose = require('mongoose');
 const resolvers = {
@@ -21,6 +21,16 @@ const resolvers = {
         return [];
       }
     },
+
+    shirts: async () => {
+      try {
+        const shirts = await Shirt.find({});
+        return shirts;
+      } catch (err) {
+        console.error(err);
+        return []
+      }
+    }
   },
   
   Mutation: {

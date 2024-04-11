@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../config/connection');
-const { User } = require('../models');
+const { User, Shirt } = require('../models');
+
 
 const userSeed = [
   {
@@ -15,15 +16,58 @@ const userSeed = [
     password: 'password2',
     cart: []
   },
-
 ];
 
+
+const shirtSeed = [
+    {
+      name: 'T-shirt 1',
+      price: 19.99,
+      size: 'M',
+      description: 'A shirt to remind you of the good ol days.',
+      color: 'blue',
+      image: '../../client/src/assets/shirt1.jpg',
+      stock: 10,
+      category: 'Men'
+    },
+    {
+      name: 'T-shirt 2',
+      price: 29.99,
+      size: 'L',
+      description: '#deep, all your friends will admire your new sweet hoodie.',
+      color: 'red',
+      image: '../../client/src/assets/shirt2.jpg',
+      stock: 5,
+      category: 'unisex'
+    },
+    {
+        name: 'T-shirt 2',
+        price: 29.99,
+        size: 'L',
+        description: 'The internet in the ninetys.',
+        color: 'red',
+        image: '../../client/src/assets/shirt3.jpg',
+        stock: 5,
+        category: 'Men'
+    },
+  ];
+
+
+
+//About to run seed twice, well see if I have duplicated the 2 users.
 db.once('open', async () => {
-  try {
-    await User.create(userSeed);
-    console.log('All done!');
-    process.exit(0);
-  } catch (err) {
-    throw err;
-  }
-});
+    try {
+      //! Deletes users when seeding so there arent dups
+
+      await User.deleteMany({});
+
+      await User.create(userSeed);
+      await Shirt.create(shirtSeed);
+      console.log('All done!');
+      process.exit(0);
+    } catch (err) {
+      throw err;
+    }
+  });
+
+
