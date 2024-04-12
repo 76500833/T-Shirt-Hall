@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_SHIRTS } from '../utils/query';
+import { GET_SHIRTS } from '../utils/query'; // adjust the path according to your project structure
 
 function Home() {
     // Execute the query on component load
@@ -11,18 +11,20 @@ function Home() {
 
     // Use the shirts data from the query result
     const shirts = data.shirts;
-    console.log(shirts);
- return (
+
+    return (
         <div>
-            {shirts.map((shirt) => (
-                <div key={shirt._id}>
-                    <img src={shirt.image} alt={shirt.name} />
-                    <h2>{shirt.name}</h2>
-                    <p>{shirt.description}</p>
-                </div>
-            ))}
+            {shirts && Array.isArray(shirts) && shirts.map((shirt) => {
+                console.log(shirt.image); // Log the image of each shirt
+                return (
+                    <div key={shirt._id}>
+                        <img src={`../../public/assets/${shirt.image.split('/').pop()}`} alt={shirt.name} />
+                        <h2>{shirt.name}</h2>
+                        <p>{shirt.description}</p>
+                    </div>
+                );
+            })}
         </div>
-        
     );
 }
 

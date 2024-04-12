@@ -37,3 +37,7 @@ const typeDefs = `
 // The queries and mutations that you send from your React components 
 //need to match the type definitions in here.
 module.exports = typeDefs;
+
+//In GraphQL, the schema is the contract between the client and the 
+//server. It specifies what queries, mutations, and subscriptions the 
+//client can make, and what types of data the server can return.
