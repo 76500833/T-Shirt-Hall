@@ -7,13 +7,14 @@ const typeDefs = `
   type Mutation {
     # when a client sends an addToCart mutation to your server, 
     # they should expect to receive a Cart object in response.
-    addToCart(userId: ID!, productId: ID!, total: Float!): Cart!
+    createCart(userId: ID!, productId: ID!): Cart!
+    addToCart(cartId: ID!, productId: ID!): Cart!
   }
   type Cart {
     _id: ID!
     products: [ID!]!
     user: ID!
-    total: Float!
+    total: Float
   }
   type User {
     _id: ID!

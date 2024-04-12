@@ -36,31 +36,54 @@ const resolvers = {
   Mutation: {
     //run when a graphql mutation called addToCart is ran
     //takes userId, productId, and a total
-    addToCart: async (_, { userId, productId, total }) => {
+    // What happens if the shirts go on sale? the total changes, right? 
+    createCart: async (_, { userId, productId}) => { // rename createCart
       // Convert userId and productId to ObjectIds
       const userIdObj = new ObjectId(userId);
       const productIdObj = new ObjectId(productId);
         //creates a new cart object with these vales
       const newCart = new Cart({
         products: [productIdObj],
-        user: userIdObj,
-        total: total
+        user: userIdObj
       });
         //saves newCart in the database
       const savedCart = await newCart.save();
         //finds the user obejct that corresponds to the userId from the client
-      const user = await User.findById(userIdObj);
-        //adds the ID of the newCrt to the users cart array of user object
-      user.carts.push(savedCart._id);
+        const user = await User.findById(userIdObj);
+        if (!user) {
+          throw new Error('User not found');
+        }
+        user.cart.push(savedCart._id);
       //save updated user object to database
       await user.save();
       //returns new cart object to the client.
       return savedCart;
+    },
+
+
+
+// Converts cartId and productId to ObjectId instances.
+// Finds the Cart object that corresponds to the cartId from the client.
+// Checks if the cart exists. If not, it throws an error.
+// Adds the productId to the products array of the Cart object.
+// Saves the updated Cart object to the database.
+// Returns the updated Cart object to the client.
+    // addToCart needs a cartId and productId
+    addToCart: async (_, {cartId, productId}) => { 
+      const cartIdObj = new ObjectId(cartId);
+      const productIdObj = new ObjectId(productId);
+      // Find the cart object that corresponds to the cartId from the client
+      const cart = await Cart.findById(cartIdObj);
+        //adds the ID of the new cart to the users cart array of user object
+      cart.products.push(productIdObj);
+      // Save updated cart object to database
+      const savedCart = await cart.save();
+      //returns new cart object to the client.
+      return savedCart;
     }
   }
+//When you get the products out to dspaly on cart page you can display the total
 
-
-  
 };
 
 module.exports = resolvers;

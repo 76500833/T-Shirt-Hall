@@ -16,7 +16,7 @@ function Home() {
         <div>
             {shirts.map((shirt) => (
                 <div key={shirt._id}>
-                    <img src={shirt.image} alt={shirt.name} />
+                    <img src={`/images/${shirt.image}`} alt={shirt.name} />
                     <h2>{shirt.name}</h2>
                     <p>{shirt.description}</p>
                 </div>
