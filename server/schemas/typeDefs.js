@@ -22,6 +22,7 @@ const typeDefs = `
     cart: [Cart]!
   }
   type Shirt {
+    _id: ID!
     name: String!
     price: Float!
     size: String!

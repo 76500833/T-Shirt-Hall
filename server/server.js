@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
@@ -11,16 +12,24 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  //Also ran npm i cors
+  //!cors
+  cors: {
+    origin: '*', // allow to all origins
+    credentials: true // credentials shared between domains
+  }
 });
 
 const startApolloServer = async () => {
   await server.start();
-  
+  //!cors
+  app.use(cors());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
   app.use('/graphql', expressMiddleware(server));
-
+  
+  
   // if we're in production, serve client/dist as static assets
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
