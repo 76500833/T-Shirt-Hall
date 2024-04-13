@@ -16,10 +16,28 @@ function Home() {
     const mapOfShirts = shirt.map(shirt => (
 <div className="card w-96 bg-base-100 shadow-xl">
 <figure><img src={`/images/${shirt.image}`} alt={shirt.name} style={{width: "100%"}} /></figure>
-<div className="card-body">
+<div style={{display: "flex", gap:"20px", margin: "10px"}}>
 <div class="relative z-0">
     <button className="btn btn-primary">Add to Cart</button>
   </div>
+  <div className="form-control">
+  <label className="label cursor-pointer">
+    <span className="label-text" style={{marginRight: "10px"}}>S</span> 
+    <input type="radio" name="radio-10" className="radio checked:bg-red-500" checked />
+  </label>
+</div>
+<div className="form-control">
+  <label className="label cursor-pointer">
+    <span className="label-text" style={{marginRight: "10px"}}>M</span> 
+    <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
+  </label>
+</div>
+<div className="form-control">
+  <label className="label cursor-pointer">
+    <span className="label-text" style={{marginRight: "10px"}}>L</span> 
+    <input type="radio" name="radio-10" className="radio checked:radio-secondary" checked />
+  </label>
+</div>
 </div>
 </div>
 
