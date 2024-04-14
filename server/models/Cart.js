@@ -13,8 +13,7 @@ const cartSchema = new Schema(
       ref: 'User'
     },
     total: {
-      type: Number,
-      required: true
+      type: Number
     }
   }
 );

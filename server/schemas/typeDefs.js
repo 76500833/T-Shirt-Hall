@@ -7,13 +7,14 @@ const typeDefs = `
   type Mutation {
     # when a client sends an addToCart mutation to your server, 
     # they should expect to receive a Cart object in response.
-    addToCart(userId: ID!, productId: ID!, total: Float!): Cart!
+    createCart(userId: ID!, productId: ID!): Cart!
+    addToCart(cartId: ID!, productId: ID!): Cart!
   }
   type Cart {
     _id: ID!
     products: [ID!]!
     user: ID!
-    total: Float!
+    total: Float
   }
   type User {
     _id: ID!
@@ -37,7 +38,3 @@ const typeDefs = `
 // The queries and mutations that you send from your React components 
 //need to match the type definitions in here.
 module.exports = typeDefs;
-
-//In GraphQL, the schema is the contract between the client and the 
-//server. It specifies what queries, mutations, and subscriptions the 
-//client can make, and what types of data the server can return.
