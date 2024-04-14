@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Home from './components/home';
+import Home from './components/Home';
 import DroopyImage from './components/droopyImage'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 const client = new ApolloClient({
