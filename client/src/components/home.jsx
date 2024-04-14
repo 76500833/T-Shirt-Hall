@@ -29,7 +29,7 @@ function Home() {
     borderBottomRightRadius: "10px", 
     color: "white" 
   }} 
-  class="bg-gradient-to-r from-blue-900 to-blue-500 row-start-1 col-start-1 bg-slate-50 dark:bg-slate-800"
+  className="bg-gradient-to-r from-blue-900 to-blue-500 row-start-1 col-start-1 bg-slate-50 dark:bg-slate-800"
 >
   <option value="" selected disabled hidden>Select a Size</option>
   <option>Small</option>
@@ -40,11 +40,6 @@ function Home() {
         <div class="relative z-0" >
           <button style={{ color: "white", padding: "10px", borderRadius: "10px", marginLeft: "10px", marginBottom: "5px" }} className="bg-gradient-to-r from-green-700 to-green-500"> Add to Cart</button>
         </div>
-
-
-
-
-
       </div>
     </div>
   ));
