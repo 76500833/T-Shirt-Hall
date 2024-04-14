@@ -50,6 +50,36 @@ const shirtSeed = [
         stock: 5,
         category: 'Men'
     },
+    {
+      name: 'T-shirt 1',
+      price: 19.99,
+      size: 'M',
+      description: 'A shirt to remind you of the good ol days.',
+      color: 'blue',
+      image: 'shirt1.jpg',
+      stock: 10,
+      category: 'Men'
+    },
+    {
+      name: 'T-shirt 2',
+      price: 29.99,
+      size: 'L',
+      description: '#deep, all your friends will admire your new sweet hoodie.',
+      color: 'red',
+      image: 'shirt2.jpg',
+      stock: 5,
+      category: 'unisex'
+    },
+    {
+        name: 'T-shirt 2',
+        price: 29.99,
+        size: 'L',
+        description: 'The internet in the ninetys.',
+        color: 'red',
+        image: 'shirt3.jpg',
+        stock: 5,
+        category: 'Men'
+    }
   ];
 
 
