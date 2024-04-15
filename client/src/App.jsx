@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Home from './components/home';
 import DroopyImage from './components/droopyImage'
+import FaqDrawer from './components/FaqDrawer'
 import Faq from './components/faq'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 const client = new ApolloClient({
@@ -13,9 +14,10 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-
+      <div>
+      < FaqDrawer/>
+      </div>
       < Home/>
-      < Faq />
       </ApolloProvider>
     
   )
