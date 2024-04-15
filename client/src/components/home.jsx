@@ -11,7 +11,7 @@ function Home() {
   console.log('Error:', error); // Log the error
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
+``
   // Use the shirt data from the query result
   const shirt = data.shirts;
   // Iterate over each shirt so we can do something per shirt.
@@ -20,7 +20,7 @@ function Home() {
     <div className="card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
         <img src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
-
+1
       </figure>
       <select
         onChange={(e) => setSelectedSize(e.target.value)}
@@ -81,7 +81,8 @@ function Home() {
   return (
     <>
       <span style={{ display: "flex", justifyContent: "center" }}>
-        <h1 class="text-5xl font-extrabold dark:text-white" style={{ marginBottom: "25px" }}>T Shirt Hall</h1>
+      <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">T-Shirt Hall</span> Scalable AI.</h1>
+
       </span>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
