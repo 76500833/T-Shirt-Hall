@@ -11,7 +11,7 @@ function Home() {
   console.log('Error:', error); // Log the error
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-``
+
   // Use the shirt data from the query result
   const shirt = data.shirts;
   // Iterate over each shirt so we can do something per shirt.
@@ -20,7 +20,6 @@ function Home() {
     <div className="card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
         <img src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
-1
       </figure>
       <select
         onChange={(e) => setSelectedSize(e.target.value)}

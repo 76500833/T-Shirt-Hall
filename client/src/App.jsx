@@ -13,11 +13,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-<<<<<<< HEAD
-  < DroopyImage />
-=======
-      < DroopyImage />
->>>>>>> e21f656b74916fbb3bdd813fd386eb0e689e87ba
+
       < Home/>
       < Faq />
       </ApolloProvider>
