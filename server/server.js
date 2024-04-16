@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-const path = require('path');
+const path = require('path'); 
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -26,8 +26,8 @@ const startApolloServer = async () => {
   app.use(cors());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
-  app.use("/auth", require("/routes/auth"));
-  app.use("/posts", require("./routes/posts"));
+  // app.use("/auth", require("/routes/auth"));
+  // app.use("/posts", require("./routes/posts"));
   
   app.use('/graphql', expressMiddleware(server));
   
