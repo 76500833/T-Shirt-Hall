@@ -6,7 +6,7 @@ function SignUp() {
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn">open modal</label>
+            <label htmlFor="my_modal_7" className="btn">Sign Up</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" />
