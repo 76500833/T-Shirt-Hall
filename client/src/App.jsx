@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import Home from './components/home';
 import DroopyImage from './components/droopyImage'
-import Faq from './components/faq'
+import FaqDrawer from './components/FaqDrawer'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql', 
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache()
 });
 import './App.css'
@@ -13,11 +13,14 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
+      <div>
+        < FaqDrawer />
+      </div>
+      < Home />
 
-      < Home/>
-      < Faq />
-      </ApolloProvider>
-    
+    </ApolloProvider>
+
+
   )
 }
 

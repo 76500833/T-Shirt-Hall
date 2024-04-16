@@ -1,15 +1,9 @@
-const typeDefs = `
-  type Query {
-    users: [User]!
-    shirts: [Shirt]
-  }
+//model
+//typedef
+//query
 
-  type Mutation {
-    # when a client sends an addToCart mutation to your server, 
-    # they should expect to receive a Cart object in response.
-    createCart(userId: ID!, productId: ID!): Cart!
-    addToCart(cartId: ID!, productId: ID!): Cart!
-  }
+const typeDefs = `
+  
   type Cart {
     _id: ID!
     products: [ID!]!
@@ -32,6 +26,17 @@ const typeDefs = `
     image: String
     stock: Int!
     category: String!
+  }
+  type Query {
+    users: [User]!
+    shirts: [Shirt]
+  }
+
+  type Mutation {
+    # when a client sends an addToCart mutation to your server, 
+    # they should expect to receive a Cart object in response.
+    createCart(userId: ID!, productId: ID!): Cart!
+    addToCart(cartId: ID!, productId: ID!): Cart!
   }
 `;
 

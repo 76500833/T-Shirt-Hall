@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SHIRTS } from '../utils/query';
-
+import '../App.css'
 
 function Home() {
 
@@ -17,9 +17,11 @@ function Home() {
   // Iterate over each shirt so we can do something per shirt.
   const mapOfShirts = shirt.map((shirt, index) => (
     // per shirt insert a card
-    <div className="card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
+   
+    <div className="z-1 card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
-        <img src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
+        <img className="shirtImage" src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
+
       </figure>
       <select
         onChange={(e) => setSelectedSize(e.target.value)}
@@ -33,7 +35,9 @@ function Home() {
           borderBottomRightRadius: "10px",
           color: "white",
           width: "100%",
-          fontSize: "medium"
+          fontSize: "medium",
+
+
         }}
 
         // Size dropdown
@@ -66,13 +70,9 @@ function Home() {
       </div>
     </div>
 
+
+
   ));
-
-
-
-
-
-
 
 
 
@@ -80,15 +80,17 @@ function Home() {
   return (
     <>
       <span style={{ display: "flex", justifyContent: "center" }}>
-      <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">T-Shirt Hall</span></h1>
+      <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-500 from-sky-200">T-Shirt Hall</span></h1>
 
       </span>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
         {mapOfShirts}
+        
       </div>
     </>
   );
 }
+
 
 export default Home;
