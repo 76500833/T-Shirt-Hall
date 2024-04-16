@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Home from './components/home';
 import DroopyImage from './components/droopyImage'
 import FaqDrawer from './components/FaqDrawer'
+import SignUp from './components/SignUp'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql',
@@ -16,8 +17,9 @@ function App() {
       <div>
         < FaqDrawer />
       </div>
+      < SignUp />
       < Home />
-
+   
     </ApolloProvider>
 
 
