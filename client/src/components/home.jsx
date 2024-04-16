@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SHIRTS } from '../utils/query';
-
+import '../App.css'
 
 function Home() {
 
@@ -20,7 +20,7 @@ function Home() {
    
     <div className="z-1 card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
-        <img src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
+        <img className="shirtImage" src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
 
       </figure>
       <select
