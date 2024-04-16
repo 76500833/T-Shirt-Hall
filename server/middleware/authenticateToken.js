@@ -8,3 +8,14 @@ const authToken = async (req, res, next) => {
   
     // Option 2
     const token = req.header("x-auth-token");
+
+     // If token not found, send error message
+  if (!token) {
+    res.status(401).json({
+      errors: [
+        {
+          msg: "Token not found",
+        },
+      ],
+    });
+  }
