@@ -47,6 +47,7 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
+//exporting
 const authService = {
   signup,
   login,
