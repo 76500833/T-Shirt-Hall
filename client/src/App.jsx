@@ -11,13 +11,13 @@ const client = new ApolloClient({
 import './App.css'
 function App() {
   const [count, setCount] = useState(0)
-
+//module 21 activity 23 line 22 example of conditional render in header component
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div style={{display: "flex"}}>
         < FaqDrawer />
-      </div>
       < SignUp />
+      </div>
       < Home />
    
     </ApolloProvider>
