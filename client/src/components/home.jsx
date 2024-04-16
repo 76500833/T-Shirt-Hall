@@ -1,9 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SHIRTS } from '../utils/query';
-
+import AuthService from "../services/auth.service"
 
 function Home() {
+
+  //Calling the back ends posts for login/signup
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    PostService.getAllPublicPosts().then(
+      (response) => {
+        setPosts(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, [])
+
+  return (
+    <div>
+      <h3>
+        {posts.map((post, index) => (
+          <div key={index}>{post.content}</div>
+        ))}
+      </h3>
+    </div>
+  );
+
+  
 
   // Get all shirts on component load.
   const { loading, error, data } = useQuery(GET_SHIRTS);
