@@ -32,13 +32,13 @@ function Home() {
           borderTopRightRadius: "0",
           borderBottomLeftRadius: "10px",
           borderBottomRightRadius: "10px",
-          color: "white",
+          color: "black",
           width: "100%",
           fontSize: "medium"
         }}
 
         // Size dropdown
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        className="text-white bg-blue-700 hover:bg-green-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
         //text in the undropped dropdown.
         <option value="" selected disabled hidden>Select a Size</option>
         //dropdown text
