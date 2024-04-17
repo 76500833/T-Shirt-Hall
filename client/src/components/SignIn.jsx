@@ -1,19 +1,12 @@
-import React, {useState} from 'react';
-import { useMutation } from '@apollo/client';
-import { SIGNUP_MUTATION } from '../graphql/mutations';
-function SignUp() {
-    const [signup, { data }] = useMutation(SIGNUP_MUTATION);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const uniqueUsername = `defaultUsername-${Date.now()}`;
-        signup({ variables: { username: uniqueUsername, email, password } });    };
+// Importing React library
+import React from 'react';
+
+// Defining SignUp function component
+function SignIn() {
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn">Sign Up</label>
+            <label htmlFor="my_modal_7" className="btn">Sign In</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" />
@@ -23,17 +16,17 @@ function SignUp() {
                 <div className="modal-box">
 
                     {/* The signup form */}
-                    <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
+                    <form className="max-w-sm mx-auto">
                         {/* Email input field */}
                         <div className="mb-5">
-                            <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required onChange={(e) => setEmail(e.target.value)} />
+                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
                         </div>
 
                         {/* Password input field */}
                         <div className="mb-5">
-                            <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required onChange={(e) => setPassword(e.target.value)} />
+                            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                         </div>
 
                         {/* Remember me checkbox */}
@@ -41,7 +34,7 @@ function SignUp() {
                             <div className="flex items-center h-5">
                                 <input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
                             </div>
-                            <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                            <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
                         </div>
 
                         {/* Submit button */}
@@ -66,4 +59,4 @@ function SignUp() {
 }
 
 // Exporting SignUp component
-export default SignUp;
+export default SignIn;

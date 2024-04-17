@@ -1,4 +1,5 @@
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
+import jwt from 'jsonwebtoken'
 require("dotenv").config();
 
 const authToken = async (req, res, next) => {

@@ -6,7 +6,7 @@ const path = require('path');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-
+require('dotenv').config();
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -26,8 +26,8 @@ const startApolloServer = async () => {
   app.use(cors());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
-  app.use("/auth", require("/routes/auth"));
-  app.use("/posts", require("./routes/posts"));
+  // app.use("/auth", require("/routes/auth"));
+  // app.use("/posts", require("./routes/posts"));
   
   app.use('/graphql', expressMiddleware(server));
   
