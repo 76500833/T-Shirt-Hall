@@ -1,8 +1,21 @@
-// Importing React library
-import React from 'react';
-
-// Defining SignUp function component
+import React, { useState } from 'react';
+import { jwtDecode } from 'jwt-decode';
+import { useMutation } from '@apollo/client';
+import { SIGNUP_MUTATION } from '../graphql/mutations';
 function SignUp() {
+    const [signup, { data }] = useMutation(SIGNUP_MUTATION);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const uniqueUsername = `defaultUsername-${Date.now()}`;
+        const stuff = await signup({ variables: { username: uniqueUsername, email, password } });
+        console.log('What we got back: ', stuff);
+        // const decoded = decode(stuff.token);
+        // console.log("The token!", decoded);
+    };
+
     return (
         <>
             {/* Button to trigger the modal */}
@@ -16,17 +29,17 @@ function SignUp() {
                 <div className="modal-box">
 
                     {/* The signup form */}
-                    <form className="max-w-sm mx-auto">
+                    <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
                         {/* Email input field */}
                         <div className="mb-5">
                             <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required onChange={(e) => setEmail(e.target.value)} />
                         </div>
 
                         {/* Password input field */}
                         <div className="mb-5">
                             <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required onChange={(e) => setPassword(e.target.value)} />
                         </div>
 
                         {/* Remember me checkbox */}

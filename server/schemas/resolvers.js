@@ -5,10 +5,11 @@
 // Adds the ID of the new Cart to the carts array of the User object.
 // Saves the updated User object to the database.
 // Returns the new Cart object to the client.
-
+const jwt = require('jsonwebtoken');
 const { User, Cart, Shirt } = require('../models');
 const { ObjectId } = require('mongoose').Types;
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const resolvers = {
   //Querys all users
   Query: {
@@ -60,6 +61,46 @@ const resolvers = {
       return savedCart;
     },
 
+
+   
+    signup: async (_, { username, email, password }) => {
+      // Check if user already exists
+      // const existingUser = await User.findOne({ email });
+      // if (existingUser) {
+      //   throw new Error('User already exists');
+      // }
+
+      // Hash the password and create a new user
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const user = new User({ username, email, password: hashedPassword });
+      await user.save();
+
+      // Create a JWT
+      const accessToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
+
+      return { accessToken };
+    },
+
+    login: async (_, { email, password }) => {
+      // Check if user exists
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Check if password is correct
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        throw new Error('Email or password is invalid');
+      }
+
+      // Create a JWT
+      const accessToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
+
+      return { accessToken };
+    },
+  
+    
 
 
 // Converts cartId and productId to ObjectId instances.
