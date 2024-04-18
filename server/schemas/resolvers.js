@@ -5,11 +5,13 @@
 // Adds the ID of the new Cart to the carts array of the User object.
 // Saves the updated User object to the database.
 // Returns the new Cart object to the client.
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { User, Cart, Shirt } = require('../models');
 const { ObjectId } = require('mongoose').Types;
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+ const {authenticateToken}  = require('../middleware/authenticateToken')
 const resolvers = {
   //Querys all users
   Query: {
@@ -64,6 +66,7 @@ const resolvers = {
 
    
     signup: async (_, { username, email, password }) => {
+      //! Take in arguments and tcreate user, also create a token
       // Check if user already exists
       // const existingUser = await User.findOne({ email });
       // if (existingUser) {
@@ -71,12 +74,12 @@ const resolvers = {
       // }
 
       // Hash the password and create a new user
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const user = new User({ username, email, password: hashedPassword });
+      // const hashedPassword = await bcrypt.hash(password, 10);
+      const user = new User({ username, email, password });
       await user.save();
 
-      // Create a JWT
-      const accessToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
+      //! Create a JWT  (fails)
+      const accessToken = jwt.sign({ email }, 'abc1234', { expiresIn: '10s' });
 
       return { accessToken };
     },
