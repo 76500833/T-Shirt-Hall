@@ -37,6 +37,13 @@ const typeDefs = `
     # they should expect to receive a Cart object in response.
     createCart(userId: ID!, productId: ID!): Cart!
     addToCart(cartId: ID!, productId: ID!): Cart!
+
+    signup(username: String, email: String!, password: String!): AuthPayload!
+    login(email: String!, password: String!): AuthPayload!
+  }
+
+  type AuthPayload {
+    accessToken: String!
   }
 `;
 
