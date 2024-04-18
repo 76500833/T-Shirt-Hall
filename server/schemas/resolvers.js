@@ -76,7 +76,7 @@ const resolvers = {
       const user = new User({ username, email, password: hashedPassword });
       await user.save();
 
-      // Create a JWT
+      //! Create a JWT  (fails)
       const accessToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
 
       return { accessToken };

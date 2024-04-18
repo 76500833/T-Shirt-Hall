@@ -10,8 +10,12 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const uniqueUsername = `defaultUsername-${Date.now()}`;
-        const stuff = await signup({ variables: { username: uniqueUsername, email, password } });
-        console.log('What we got back: ', stuff);
+        try {
+            const stuff = await signup({ variables: { username: uniqueUsername, email, password } });
+            console.log('What we got back: ', stuff);
+        } catch (error) {
+            console.error('Error signing up: ', error);
+        }
         // const decoded = decode(stuff.token);
         // console.log("The token!", decoded);
     };
