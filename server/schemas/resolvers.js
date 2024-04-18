@@ -5,6 +5,7 @@
 // Adds the ID of the new Cart to the carts array of the User object.
 // Saves the updated User object to the database.
 // Returns the new Cart object to the client.
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { User, Cart, Shirt } = require('../models');
 const { ObjectId } = require('mongoose').Types;
