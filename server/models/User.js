@@ -5,8 +5,7 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      trim: true,
-      default: 'defaultUsername'
+      trim: true
     },
     email: {
       type: String,
