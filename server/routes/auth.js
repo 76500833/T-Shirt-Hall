@@ -125,6 +125,7 @@
 //       expiresIn: "10s",
 //     }
 //   );
+//? were using resolvers and typeDefs instead of routes.
 
 //   res.json({
 //     accessToken,

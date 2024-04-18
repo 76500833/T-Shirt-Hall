@@ -5,7 +5,7 @@
 // Adds the ID of the new Cart to the carts array of the User object.
 // Saves the updated User object to the database.
 // Returns the new Cart object to the client.
-
+const jwt = require('jsonwebtoken');
 const { User, Cart, Shirt } = require('../models');
 const { ObjectId } = require('mongoose').Types;
 const mongoose = require('mongoose');
@@ -65,10 +65,10 @@ const resolvers = {
    
     signup: async (_, { username, email, password }) => {
       // Check if user already exists
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        throw new Error('User already exists');
-      }
+      // const existingUser = await User.findOne({ email });
+      // if (existingUser) {
+      //   throw new Error('User already exists');
+      // }
 
       // Hash the password and create a new user
       const hashedPassword = await bcrypt.hash(password, 10);
