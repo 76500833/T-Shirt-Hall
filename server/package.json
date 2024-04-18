@@ -4,21 +4,32 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js",
-        "seed": "node seeds/seed.js",
-        "watch": "nodemon server.js"
+          "start": "node server.js",
+          "seed": "node seeds/seed.js",
+          "watch": "nodemon server.js"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        
         "@apollo/server": "^4.7.1",
         "dotenv": "^16.4.5",
+      //If this branch dosnt work for some reason try using the commented out express version instead of this one.
         "express": "^4.17.2",
         "graphql": "^16.6.0",
         "jsonwebtoken": "^9.0.2",
         "mongoose": "^7.0.2"
+
+        "@stripe/react-stripe-js": "^2.7.0",
+        "@stripe/stripe-js": "^3.3.0",
+        "axios": "^1.6.8",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+          //"express": "^4.19.2",
+        "stripe": "^15.1.0"
+
     },
     "devDependencies": {
-        "nodemon": "^2.0.6"
+          "nodemon": "^2.0.6"
     }
 }
