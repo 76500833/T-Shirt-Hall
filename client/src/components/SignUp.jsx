@@ -15,11 +15,14 @@ function SignUp() {
         // const decoded = decode(stuff.token);
         // console.log("The token!", decoded);
     };
-
+    let labelStyle = {
+        backgroundColor: 'lightgreen'
+    };
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn" style={{backgroundColor: 'lightgreen'}}> Sign Up</label>
+            <label htmlFor="my_modal_7" className="btn" style={{backgroundColor: 'lightgreen'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#228b22'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'lightgreen'}> Sign Up</label>
         
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" />
