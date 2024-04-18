@@ -63,3 +63,10 @@ h1,
 h3 {
 	text-align: center;
 }
+
+.shirtImage {
+    height: 350px; /* Adjust this value as needed */
+    object-fit: cover; /* This will ensure the image covers the area without stretching */
+  }
+
+  

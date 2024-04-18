@@ -24,9 +24,9 @@ const shirtSeed = [
       name: 'T-shirt 1',
       price: 19.99,
       size: 'M',
-      description: 'A shirt to remind you of the good ol days.',
+      description: 'Go touch grass',
       color: 'blue',
-      image: 'shirt1.jpg',
+      image: 'logoff.png',
       stock: 10,
       category: 'Men'
     },
@@ -50,6 +50,7 @@ const shirtSeed = [
         stock: 5,
         category: 'Men'
     },
+    
     {
       name: 'T-shirt 1',
       price: 19.99,
