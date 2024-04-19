@@ -25,7 +25,7 @@ function ShirtCart() {
     return(
         <div>
             <button onClick={handleCartClick}>
-                <img src="/path/to/your/cart-logo.png" alt="" />
+                <img src="../images/cart.png" alt="cart" />
             </button>
             {showCart && 
                 <div>
