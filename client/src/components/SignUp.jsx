@@ -24,11 +24,15 @@ function SignUp({isSignedUp, setIsSignedUp}) {
 
 
     };
-
+    let labelStyle = {
+        backgroundColor: 'lightgreen'
+    };
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn" onClick={() => setIsOpen(true)}>Sign Up</label>
+ 
+            <label htmlFor="my_modal_7" className="btn" onClick={() => setIsOpen(true)}style={{backgroundColor: 'lightgreen'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#228b22'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'lightgreen'}> Sign Up</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" checked={isOpen} onChange={() => {}}/>
@@ -60,7 +64,7 @@ function SignUp({isSignedUp, setIsSignedUp}) {
                         </div>
 
                         {/* Submit button */}
-                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        <button type="submit" className="text-white bg-green-400 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </form>
 
                     {/* Modal for authentication */}

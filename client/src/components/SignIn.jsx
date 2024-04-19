@@ -3,10 +3,15 @@ import React from 'react';
 
 // Defining SignUp function component
 function SignIn() {
+    let labelStyle = {
+        backgroundColor: '#32cd32'
+    };
+    
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn">Sign In</label>
+            <label htmlFor="my_modal_7" className="btn" style={{backgroundColor: 'lightgreen'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#228b22'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'lightgreen'} >Sign In</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" />
@@ -38,7 +43,7 @@ function SignIn() {
                         </div>
 
                         {/* Submit button */}
-                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        <button type="submit" className="text-white bg-blue-400 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </form>
 
                     {/* Modal for authentication */}
