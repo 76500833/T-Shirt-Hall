@@ -8,7 +8,7 @@ import ShirtCart from './components/ShirtCart'
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
   cache: new InMemoryCache()
 });
 import './App.css'
