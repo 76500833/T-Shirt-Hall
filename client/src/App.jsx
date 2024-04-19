@@ -18,13 +18,17 @@ function App() {
   //module 21 activity 23 line 22 example of conditional render in header component
   return (
     <ApolloProvider client={client}>
+      <div style={{backgroundColor: "#2F4F4F"}}>
       <div style={{display: "flex"}}>
         < FaqDrawer />
       < SignUp isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
         {isSignedUp && <ShirtCart />}
       < SignIn />
       </div>
+    
       < Home />
+      </div>
+   
    
     </ApolloProvider>
 

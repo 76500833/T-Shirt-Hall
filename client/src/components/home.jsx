@@ -33,7 +33,7 @@ function Home() {
           borderTopRightRadius: "0",
           borderBottomLeftRadius: "10px",
           borderBottomRightRadius: "10px",
-          color: "white",
+          color: "black",
           width: "100%",
           fontSize: "medium",
 
@@ -41,7 +41,7 @@ function Home() {
         }}
 
         // Size dropdown
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        className="text-white bg-green-400 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
         //text in the undropped dropdown.
         <option value="" selected disabled hidden>Select a Size</option>
         //dropdown text
@@ -53,7 +53,7 @@ function Home() {
       <div style={{ display: "flex", gap: "20px", margin: "10px", }}>
 
 
-        <div className="relative z-0" style={{ width: "100%" }} >
+        <div className="relative z-0" style={{ width: "40%" }} >
           <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" onClick={() => {
             if (selectedSize) {
               setCart([...cart, { title: shirt.title, size: selectedSize }]);
@@ -62,10 +62,10 @@ function Home() {
               alert('No size selected');
             }
           }}>
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-300 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               Add to Cart
             </span>
-          </button>          <div className="badge badge-outline text-white" style={{ position: "absolute", right: "10px" }}>$15</div>
+          </button>          <div className="badge badge-outline text-black " style={{ position: "absolute", marginRight: ".02px", backgroundColor:"lightgreen" }}>$15</div>
         </div>
       </div>
     </div>
@@ -88,8 +88,20 @@ function Home() {
         {mapOfShirts}
         
       </div>
+    
+
+      {/* Footer */}
+      <footer style={{backgroundColor: '', padding: '20px', position: 'right', width: '100%', bottom: '0', fontFamily: "ComicSans"}}>
+        <div>About</div>
+        <div>Contact</div>
+        <div>Terms of Service</div>
+        <div>Privacy Policy</div>
+        <div style={{ alignSelf: 'center' }}>T-Shirt-Hall 2024 All Rights Reserved</div>
+      </footer>
     </>
   );
+
+  
 }
 
 
