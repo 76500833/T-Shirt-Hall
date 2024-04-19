@@ -91,9 +91,12 @@ function Home() {
     
 
       {/* Footer */}
-      <footer style={{backgroundColor: '#f8f9fa', padding: '20px', position: 'fixed', width: '100%', bottom: '0'}}>
+      <footer style={{backgroundColor: '', padding: '20px', position: 'right', width: '100%', bottom: '0', fontFamily: "ComicSans"}}>
         <div>About</div>
         <div>Contact</div>
+        <div>Terms of Service</div>
+        <div>Privacy Policy</div>
+        <div style={{ alignSelf: 'center' }}>T-Shirt-Hall 2024 All Rights Reserved</div>
       </footer>
     </>
   );
