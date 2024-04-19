@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_MUTATION } from '../graphql/mutations';
-function SignUp() {
+function SignUp({isSignedUp, setIsSignedUp}) {
     const [signup, { data }] = useMutation(SIGNUP_MUTATION);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isOpen, setIsOpen] = useState(false); //for modal
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const uniqueUsername = `defaultUsername-${Date.now()}`;
@@ -16,6 +15,9 @@ function SignUp() {
         // const decoded = decode(stuff.token);
         // console.log("The token!", decoded);
         setIsOpen(false); 
+        setIsSignedUp(true); // User is signed up
+        console.log(isSignedUp)
+
 
     };
 
