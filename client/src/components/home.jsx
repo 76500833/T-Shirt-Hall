@@ -65,7 +65,7 @@ function Home() {
             <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               Add to Cart
             </span>
-          </button>          <div className="badge badge-outline text-black" style={{ position: "absolute", right: "10px" }}>$15</div>
+          </button>          <div className="badge badge-outline text-black" style={{ position: "absolute", marginRight: ".02px" }}>$15</div>
         </div>
       </div>
     </div>
