@@ -88,6 +88,13 @@ function Home() {
         {mapOfShirts}
         
       </div>
+    
+
+      {/* Footer */}
+      <footer style={{backgroundColor: '#f8f9fa', padding: '20px', position: 'fixed', width: '100%', bottom: '0'}}>
+        <div>About</div>
+        <div>Contact</div>
+      </footer>
     </>
   );
 
