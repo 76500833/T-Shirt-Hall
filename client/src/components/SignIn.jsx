@@ -10,8 +10,8 @@ function SignIn() {
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn" style={{backgroundColor: '#32cd32'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#228b22'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#32cd32'} >Sign In</label>
+            <label htmlFor="my_modal_7" className="btn" style={{backgroundColor: 'lightgreen'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#228b22'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'lightgreen'} >Sign In</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" />
