@@ -14,6 +14,17 @@ If the user has any questions about the shirts they can ``click`` onb the "frequ
 
 
 ## Credits
+https://github.com/emilyshea94
+https://github.com/ihateudvrk
+https://github.com/76500833
+Codue used from Daisy UI and Flowbite.
+
+
 
 
 ## License 
+The MIT License (MIT)
+
+Copyright (c) Ethan, Gabriel, Emily
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
