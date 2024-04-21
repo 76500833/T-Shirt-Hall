@@ -30,7 +30,7 @@ function SignUp({isSignedUp, setIsSignedUp}) {
     return (
         <>
             {/* Button to trigger the modal */}
-            <label htmlFor="my_modal_7" className="btn relative inline-flex items-center justify-center p-3 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" > Sign Up</label>
+            <label htmlFor="my_modal_7" className="btn relative inline-flex items-center justify-center p-3 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" style={{fontWeight: "bold", color: "black"}}> Sign Up</label>
 
             {/* Checkbox input to control the modal state */}
             <input type="checkbox" id="my_modal_7" className="modal-toggle" checked={isOpen} onChange={() => {}}/>

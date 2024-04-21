@@ -5,7 +5,7 @@ function FaqDrawer() {
         <div className="z-10 drawer drawer-end">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-                <label htmlFor="my-drawer-4" className="cursor-pointer text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Frequently Asked Q's</label>
+                <label htmlFor="my-drawer-4" className="cursor-pointer text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" style={{fontWeight: "bold", color: "black"}}>Frequently Asked Q's</label>
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
