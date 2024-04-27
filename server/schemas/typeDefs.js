@@ -44,7 +44,7 @@ const typeDefs = `
   }
 
   type AuthPayload {
-    accessToken: String!
+    token: String!
   }
 `;
 

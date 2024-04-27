@@ -3,6 +3,7 @@ const cors = require('cors');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
+const { authMiddleware } = require('./utils/auth')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -29,7 +30,9 @@ const startApolloServer = async () => {
   // app.use("/auth", require("/routes/auth"));
   // app.use("/posts", require("./routes/posts"));
   
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
   
   
   // if we're in production, serve client/dist as static assets

@@ -12,6 +12,7 @@ const { ObjectId } = require("mongoose").Types;
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { authenticateToken } = require("../middleware/authenticateToken");
+const { signToken, AuthenticationError } = require('../utils/auth')
 const resolvers = {
   //Querys all users
   Query: {
@@ -72,29 +73,31 @@ const resolvers = {
     signup: async (_, { username, email, password }) => {
       const user = new User({ username, email, password });
       await user.save();
-
+      const token = signToken(user)
       //! Create a JWT  (fails)
-      const accessToken = jwt.sign({ email }, "abc1234", { expiresIn: "10s" });
+      // const accessToken = jwt.sign({ email }, "abc1234", { expiresIn: "10s" });
 
-      return { accessToken };
+      return { token, user };
     },
 
     login: async (_, { email, password }) => {
       // Check if user exists
       const user = await User.findOne({ email });
       if (!user) {
-        throw new Error("User not found");
+        throw AuthenticationError
+      }
+      const correctPw = await user.isCorrectPassword(password)
+      if (!correctPw) {
+        throw AuthenticationError
       }
       // Check if password is correct
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        throw new Error("Email or password is invalid");
-      }
+      // const isMatch = await bcrypt.compare(password, user.password);
+      // if (!isMatch) {
+      //   throw new Error("Email or password is invalid");
+      // }
       // Create a JWT
-      const accessToken = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: "10s",
-      });
-      return { accessToken };
+      const token = signToken(user)
+      return { token, profile };
     },
 
     addToCart: async (_, { cartId, productId }) => {
