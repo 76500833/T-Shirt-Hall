@@ -1,4 +1,5 @@
-import decode from 'jwt-decode';
+import * as decode from 'jwt-decode';
+
 class AuthService {
     getUser() {
         //get user data from json web token by decoding it

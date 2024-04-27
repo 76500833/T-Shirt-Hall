@@ -3,12 +3,14 @@ import React from 'react';
 import {useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { SIGNIN_MUTATION } from '../graphql/mutations'
+import Auth from '../utils/auth'
 // Defining SignUp function component
 const SignIn = (props) => {
      let labelStyle = {
         backgroundColor: '#32cd32'
     };
-    
+
+
     return (
         <>
             {/* Button to trigger the modal */}
@@ -64,6 +66,7 @@ const SignIn = (props) => {
         </>
     );
 }
+
 
 // Exporting SignUp component
 export default SignIn;
