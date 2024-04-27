@@ -47,8 +47,9 @@ const resolvers = {
 
   Mutation: {
     createCart: async (_, { userId, productId }) => {
+
       const userIdObj = new ObjectId(userId);
-      const productIdObj = new ObjectId(productId);
+        const productIdObj = productId.map(id => new ObjectId(id)); // Convert each productId to an ObjectIdconst productIdObj = new ObjectId(productId);
 
       const newCart = new Cart({
         products: [productIdObj],
