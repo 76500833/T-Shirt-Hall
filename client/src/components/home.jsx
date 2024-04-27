@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_SHIRTS } from '../utils/query';
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_SHIRTS, GET_CART } from '../utils/query';
+import { CREATE_CART, ADD_TO_CART } from '../graphql/mutations';
 import '../App.css'
 
 function Home() {
-
-  // Get all shirts on component load.
   const { loading, error, data } = useQuery(GET_SHIRTS);
   console.log('Data:', data); // Log the data
   console.log('Error:', error); // Log the error
@@ -14,14 +13,10 @@ function Home() {
 
   // Use the shirt data from the query result
   const shirt = data.shirts;
-  // Iterate over each shirt so we can do something per shirt.
   const mapOfShirts = shirt.map((shirt, index) => (
-    // per shirt insert a card
-   
     <div className="z-1 card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
         <img className="shirtImage" src={`/images/${shirt.image}`} alt={shirt.name} style={{ width: "100%" }} />
-
       </figure>
       <select
         onChange={(e) => setSelectedSize(e.target.value)}
@@ -36,26 +31,20 @@ function Home() {
           color: "black",
           width: "100%",
           fontSize: "medium",
-
-
         }}
-
         // Size dropdown
         className="text-white bg-green-400 hover:bg-green-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-        //text in the undropped dropdown.
         <option value="" selected disabled hidden>Select a Size</option>
-        //dropdown text
         <option>Small</option>
         <option>Medium</option>
         <option>Large</option>
       </select>
 
       <div style={{ display: "flex", gap: "20px", margin: "10px", }}>
-
-
         <div className="relative z-0" style={{ width: "40%" }} >
           <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" onClick={() => {
             if (selectedSize) {
+              //TODO the create and add to cart mutations will need to accept
               setCart([...cart, { title: shirt.title, size: selectedSize }]);
               alert(`Size ${selectedSize} selected, added ${shirt.title} to cart`);
             } else {

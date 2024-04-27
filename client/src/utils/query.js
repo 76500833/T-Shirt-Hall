@@ -20,9 +20,24 @@ const LOGIN_MUTATION = gql`
 `;
 
 const SIGNUP_MUTATION = gql`
-mutation Signup($username: String!, $password: String!,) {
+mutation Signup($username: String!, $password: String!) {
   signup(username: $username, password: $password) {
     token
   }
 }`;
-export { GET_SHIRTS, LOGIN_MUTATION, SIGNUP_MUTATION };
+
+const GET_CART = gql`
+  query GetCart($userId: ID!) {
+    cart(userId: $userId) {
+      _id
+      products {
+        _id
+        title
+        description
+        price
+        imageUrl
+      }
+    }
+  }
+`;
+export { GET_SHIRTS, LOGIN_MUTATION, SIGNUP_MUTATION, GET_CART};
