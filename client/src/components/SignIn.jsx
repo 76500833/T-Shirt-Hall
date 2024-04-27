@@ -1,8 +1,10 @@
 // Importing React library
 import React from 'react';
-
+import {useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { SIGNIN_MUTATION } from '../graphql/mutations'
 // Defining SignUp function component
-function SignIn() {
+const SignIn = (props) => {
     let labelStyle = {
         backgroundColor: '#32cd32'
     };
