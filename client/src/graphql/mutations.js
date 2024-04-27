@@ -6,6 +6,17 @@ export const SIGNUP_MUTATION = gql`
   }
   }
 `;
+export const SIGNIN_MUTATION = gql`
+  mutation SignIn($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
+    token
+    user {
+        email
+        _id
+      }
+  }
+  }
+`;
 export const ADD_TO_CART = gql`
   mutation AddToCart($userId: ID!, $productId: ID!) {
     addToCart(userId: $userId, productId: $productId) {
