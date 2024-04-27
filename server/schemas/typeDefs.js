@@ -6,7 +6,7 @@ const typeDefs = `
   
   type Cart {
     _id: ID
-    products: [ID!]!
+    products: [ID]
     user: ID!
     total: Float
   }
