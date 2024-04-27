@@ -5,14 +5,16 @@ import { CREATE_CART, ADD_TO_CART } from '../graphql/mutations';
 import '../App.css'
 
 function Home() {
-  const { loading, error, data } = useQuery(GET_SHIRTS);
-  console.log('Data:', data); // Log the data
-  console.log('Error:', error); // Log the error
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  const { selectedSize, setSelectedSize } = useState();
+    const { loading: cartLoading, error: cartError, data: cartData } = useQuery(GET_CART);
+  const { loading: shirtsLoading, error: shirtsError, data: shirtsData } = useQuery(GET_SHIRTS);
+    console.log('Data:', shirtsData); // Log the data
+  console.log('Error:', shirtsError); // Log the error
+  if (shirtsLoading) return <p>Loading...</p>;
+  if (shirtsError) return <p>Error :(</p>;
 
   // Use the shirt data from the query result
-  const shirt = data.shirts;
+  const shirt = shirtsData.shirts;
   const mapOfShirts = shirt.map((shirt, index) => (
     <div className="z-1 card w-96 bg-base-100 shadow-xl" style={{ border: "1px solid black", marginBottom: "15px" }}>
       <figure>
