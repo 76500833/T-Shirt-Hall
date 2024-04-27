@@ -74,14 +74,10 @@ const resolvers = {
       const user = new User({ username, email, password });
       await user.save();
       const token = signToken(user)
-      //! Create a JWT  (fails)
-      // const accessToken = jwt.sign({ email }, "abc1234", { expiresIn: "10s" });
-
       return { token, user };
     },
 
     login: async (_, { email, password }) => {
-      // Check if user exists
       const user = await User.findOne({ email });
       if (!user) {
         throw AuthenticationError
@@ -90,14 +86,8 @@ const resolvers = {
       if (!correctPw) {
         throw AuthenticationError
       }
-      // Check if password is correct
-      // const isMatch = await bcrypt.compare(password, user.password);
-      // if (!isMatch) {
-      //   throw new Error("Email or password is invalid");
-      // }
-      // Create a JWT
       const token = signToken(user)
-      return { token, profile };
+      return { token, user };
     },
 
     addToCart: async (_, { cartId, productId }) => {
