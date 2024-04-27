@@ -1,0 +1,69 @@
+{
+  "data": {
+    "shirts": [
+      {
+        "_id": "66246b97d91e570c7cc40400",
+        "name": "T-shirt 2"
+      },
+      {
+        "_id": "66246b97d91e570c7cc40401",
+        "name": "T-shirt 2"
+      },
+      {
+        "_id": "66246b97d91e570c7cc40402",
+        "name": "T-shirt 1"
+      },
+      {
+        "_id": "66246b97d91e570c7cc40403",
+        "name": "T-shirt 2"
+      },
+      {
+        "_id": "66246b97d91e570c7cc40404",
+        "name": "T-shirt 2"
+      }
+    ]
+  }
+}
+
+{
+  "data": {
+    "users": [
+      {
+        "_id": "66246b97d91e570c7cc403fb",
+        "email": "test1@example.com"
+      },
+      {
+        "_id": "66246b97d91e570c7cc403fc",
+        "email": "test2@example.com"
+      },
+      {
+        "_id": "662714e59fa9f6b274c913cf",
+        "email": "djawdawdawdwa@gmail.com"
+      },
+      {
+        "_id": "662724789fa9f6b274c913d3",
+        "email": "djawdawdawddddddwa@gmail.com"
+      },
+      {
+        "_id": "662c276617cd9f0a8005095b",
+        "email": "lol@test.com"
+      },
+      {
+        "_id": "662c295bff57115e82f14c7b",
+        "email": "testy@testy.com"
+      },
+      {
+        "_id": "662c2bffff57115e82f14c81",
+        "email": "testyyy@testy.com"
+      },
+      {
+        "_id": "662c3c3e88cc5b754fa8c08d",
+        "email": "yadaa@gmail.com"
+      },
+      {
+        "_id": "662c3d2a88cc5b754fa8c09d",
+        "email": "yadaaaaaaa@gmail.com"
+      } yadaaaaaas cart id 662c4d79cca1b089bfe00bc6
+    ]
+  }
+}
