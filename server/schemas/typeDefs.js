@@ -5,7 +5,7 @@
 const typeDefs = `
   
   type Cart {
-    _id: ID!
+    _id: ID
     products: [ID!]!
     user: ID!
     total: Float
@@ -14,7 +14,7 @@ const typeDefs = `
     _id: ID!
     username: String
     email: String!
-    cart: [Cart]!
+    cart(userId: ID!): [Cart]!
   }
   type Shirt {
     _id: ID!
@@ -30,14 +30,15 @@ const typeDefs = `
   type Query {
     users: [User]!
     shirts: [Shirt]
+    cart(userId: ID!): [Cart]
   }
 
   type Mutation {
     # when a client sends an addToCart mutation to your server, 
     # they should expect to receive a Cart object in response.
-    createCart(userId: ID!, productId: ID!): Cart!
+    createCart(userId: ID!, productId: [ID!]!): Cart!
     addToCart(cartId: ID!, productId: ID!): Cart!
-
+ 
     signup(username: String, email: String!, password: String!): AuthPayload!
     login(email: String!, password: String!): AuthPayload!
   }
