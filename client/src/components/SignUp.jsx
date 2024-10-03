@@ -50,6 +50,7 @@ function SignUp({ isSignedUp, setIsSignedUp }) {
         onChange={() => {}}
       />
 
+
       {/* Modal container */}
       <div className="modal" role="dialog">
         <div className="modal-box">

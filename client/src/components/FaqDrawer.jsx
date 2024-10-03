@@ -1,6 +1,7 @@
 import React from "react";
 
 function FaqDrawer() {
+
   return (
     <div className="z-10 drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />

@@ -44,7 +44,9 @@ function Home() {
           color: "black",
           width: "100%",
           fontSize: "medium",
+
           backgroundColor: "White",
+
         }}
         // Size dropdown
       >
@@ -57,6 +59,7 @@ function Home() {
         <option>Medium</option>
         <option>Large</option>
       </select>
+
 
       <div
         style={{
@@ -92,6 +95,7 @@ function Home() {
           >
             $15
           </div>
+
         </div>
       </div>
     </div>
