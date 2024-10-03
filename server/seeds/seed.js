@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const db = require('../config/connection');
-const { User, Shirt } = require('../models');
+ mongoose = require('mongoose');
+ db = require('../config/connection');
+ { User, Shirt } = require('../models');
 
 
-const userSeed = [
+ userSeed = [
   {
     username: 'testUser1',
     email: 'test1@example.com',
@@ -19,7 +19,7 @@ const userSeed = [
 ];
 
 
-const shirtSeed = [
+ shirtSeed = [
     {
       name: 'T-shirt 1',
       price: 19.99,
